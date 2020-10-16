@@ -10,13 +10,18 @@ body {
     padding: 0;
 }
 
-header {
-    position: relative;
+ul {
+    list-style-type: none;
+
 }
 
-header label {
-    position: absolute;
-    z-index: -1;
+header {
+    position: fixed;
+    background-color: #1e5f74;
+    height: 60px;
+    width: 100%;
+    z-index: 1;
+    display: inline;
 }
 
 .hero img {
@@ -26,34 +31,35 @@ header label {
 }
 
 .nav-icon {
-    position: absolute;
     text-decoration: none;
+    display: inline;
     font-size: 2rem;
     min-width: 44px;
     min-height: 44px;
     color: white;
-    left: .5em;
-    top: .5em;
+    margin-left: 1rem;
+    line-height: 60px;
 }
 
 .brand-title {
     font-size: 2rem;
-    position: absolute;
     font-family: 'Oleo Script', cursive;
-    left: 1.8em;
-    top: -.5rem;
     color: white;
+    display: inline;
+    margin-left: 10px;
+    line-height: 60px;
 }
 
 
 nav {
+    margin-top: -17px;
     width: 50%;
+    height: 100vh;
     z-index: 1;
-    background: #b9b7b7;
-    position: absolute;
-    top: 3.3rem;
-    left: -50%;
-    border-radius: 0 1rem 1rem 0;
+    background: #1e5f74;
+    position: sticky;
+    margin-left: -50%;
+    border-radius: 0 2rem 0 0;
     transition: transform .5s ease-in-out;
 }
 
@@ -74,14 +80,14 @@ nav {
 
 .nav-item a {
     text-decoration: none;
-    color: #000;
+    color: #fff;
     padding: .8em .5em;
 }
 
 .nav-item a::after {
     content: '';
     display: block;
-    border-bottom: 4px solid #1e5f74;
+    border-bottom: 4px solid #000;
     width: 3em;
     margin-left: 1em;
     padding-top: .5em;
@@ -119,7 +125,6 @@ nav {
 /* end header */
 
 /* Awal main */
-
 .main-title {
     width: 80%;
     text-align: center;
@@ -194,19 +199,19 @@ footer {
 
 .skip-content {
     position: absolute;
-    top: 2em;
+    top: 1em;
     right: 2em;
-    font-size: .6rem;
+    font-size: .8rem;
     padding: 1em;
     text-decoration: none;
-    background: #1e5f74;
-    color: #fff;
+    background: #fff;
+    color: #1e5f74;
+    font-weight: bold;
     border-radius: 1em;
-    z-index: -1;
 }
 
 .skip-content:focus {
-    z-index: 0;
+    z-index: 2;
 }
 
 
