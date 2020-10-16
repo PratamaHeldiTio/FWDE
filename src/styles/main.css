@@ -1,0 +1,389 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Oleo+Script:wght@700&family=Roboto&display=swap');
+/* start header */
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    position: relative;
+}
+
+header label {
+    position: absolute;
+    z-index: -1;
+}
+
+.hero img {
+    width: 100%;
+    max-height: 100vh;
+    object-fit: cover;
+}
+
+.nav-icon {
+    position: absolute;
+    text-decoration: none;
+    font-size: 2rem;
+    min-width: 44px;
+    min-height: 44px;
+    color: white;
+    left: .5em;
+    top: .5em;
+}
+
+.brand-title {
+    font-size: 2rem;
+    position: absolute;
+    font-family: 'Oleo Script', cursive;
+    left: 1.8em;
+    top: -.5rem;
+    color: white;
+}
+
+
+nav {
+    width: 50%;
+    z-index: 1;
+    background: #b9b7b7;
+    position: absolute;
+    top: 3.3rem;
+    left: -50%;
+    border-radius: 0 1rem 1rem 0;
+    transition: transform .5s ease-in-out;
+}
+
+.open {
+    transform: translate(50vw, 0);
+}
+
+.nav-list {
+    font-size: 1rem;
+    display: list-item;
+    padding: 1rem;
+}
+
+.nav-item {
+    padding: .5em;
+    max-width: 40%;
+}
+
+.nav-item a {
+    text-decoration: none;
+    color: #000;
+    padding: .8em .5em;
+}
+
+.nav-item a::after {
+    content: '';
+    display: block;
+    border-bottom: 4px solid #1e5f74;
+    width: 3em;
+    margin-left: 1em;
+    padding-top: .5em;
+}
+
+.hero .hero-tagline-first,
+.hero-tagline-sec {
+    font-size: 1.5rem;
+    font-family: 'Bangers', cursive;
+    position: absolute;
+    color: white;
+}
+
+.hero-tagline-first {
+    left: 0;
+    margin: 3em 0 0 30%;
+}
+
+.hero-tagline-sec {
+    right: 0;
+    margin: 4em 30% 0 0;
+}
+
+.hero-desc {
+    position: absolute;
+    font-size: .8rem;
+    margin-top: 8em;
+    text-align: center;
+    color: white;
+    line-height: 1.3em;
+    padding: 2rem;
+}
+
+
+/* end header */
+
+/* Awal main */
+
+.main-title {
+    width: 80%;
+    text-align: center;
+    font-size: 1.6rem;
+    margin: 2em auto;
+    font-weight: bold;
+}
+
+section {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+    margin: 1rem 1rem 0 1rem;
+    position: relative;
+}
+
+section img {
+    width: 100%;
+    height: 270px;
+    object-fit: cover;
+}
+
+.restaurant-list {
+    padding: 2rem;
+}
+
+.restaurant-place {
+    position: absolute;
+    font-size: 1rem;
+    color: #fff;
+    top: .5em;
+    left: 1em;
+    width: 20%;
+    text-align: center;
+    background: #1e5f74;
+    border-radius: .5em;
+    padding: .5em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
+}
+
+.restaurant-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #000;
+    text-decoration: none;
+}
+
+.restaurant-rating {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+
+.restaurant-desc {
+    font-size: 1rem;
+    line-height: 1.5em;
+    text-align: justify;
+    text-indent: 3em;
+}
+
+footer {
+    width: 100%;
+    background: #1e5f74;
+    color: #fff;
+}
+
+.copyright {
+    font-size: 1rem;
+    text-align: center;
+    padding: 1.2em 0;
+    font-family: 'Oleo Script', cursive;
+    margin: 2rem 0 0 0 ;
+}
+
+.skip-content {
+    position: absolute;
+    top: 2em;
+    right: 2em;
+    font-size: .6rem;
+    padding: 1em;
+    text-decoration: none;
+    background: #1e5f74;
+    color: #fff;
+    border-radius: 1em;
+    z-index: -1;
+}
+
+.skip-content:focus {
+    z-index: 0;
+}
+
+
+@media screen and (min-width: 400px) {
+
+    .hero .hero-tagline-first,
+    .hero-tagline-sec {
+        font-size: 1.8rem;
+    }
+
+    .hero-desc {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .hero-desc {
+        font-size: 1.2rem;
+    }
+}
+
+
+@media screen and (min-width: 600px) {
+    .restaurant-list {
+        padding: 3rem;
+    }
+
+    .hero .hero-tagline-first,
+    .hero-tagline-sec {
+        font-size: 2rem;
+    }
+
+    .copyright {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (min-width: 650px) {
+    #restaurantList {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .restaurant-list {
+        padding: 1.3em;
+    }
+
+    section {
+        margin: 0;
+    }
+
+    .brand-title {
+        font-size: 3rem;
+        top: -1rem !important;
+    }
+
+    .hero .hero-tagline-first,
+    .hero-tagline-sec {
+        font-size: 2.5rem;
+    }
+
+    .hero-desc {
+        font-size: 1.5rem;
+        top: 3em;
+    }
+
+    .nav-icon {
+        display: none;
+    }
+
+    .brand-title {
+        left: .5em;
+        top: .3em;
+    }
+
+    nav {
+        width: 100%;
+        background: none;
+        top: .5rem;
+        left: 0;
+        text-align: right;
+    }
+
+    .nav-list {
+        padding: 0;
+    }
+
+    .nav-item {
+        display: inline-block;
+    }
+
+    .nav-item a {
+        color: #fff;
+    }
+
+    .nav-item a::after {
+        content: none;
+    }
+
+    .nav-item a:hover {
+        border-bottom: 4px solid #5fdde5;
+        border-radius: 1em;
+    }
+
+    .skip-content {
+        top: 5em;
+        font-size: 1rem;
+    }
+}
+
+
+@media screen and (min-width: 700px) {
+    .hero-tagline-first {
+        margin-left: 35%;
+    }
+
+    .hero-tagline-sec {
+        margin-right: 35%;
+    }
+
+
+}
+
+
+@media screen and (min-width: 800px) {
+    .restaurant-list {
+        padding: 2rem;
+    }
+}
+
+@media screen and (min-width: 900px) {
+
+    .hero .hero-tagline-first,
+    .hero-tagline-sec {
+        font-size: 3rem;
+    }
+
+    .hero-desc {
+        font-size: 1.8rem;
+    }
+
+    .nav-list {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    #restaurantList {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+
+    .restaurant-list {
+        padding: 1rem;
+    }
+
+    .nav-list {
+        font-size: 1.4rem;
+        margin: 1rem;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    body {
+        margin: auto;
+        max-width: 1400px;
+    }
+
+    .brand-title {
+        font-size: 4rem;
+    }
+
+    .nav-list {
+        font-size: 2rem;
+    }
+    
+}
