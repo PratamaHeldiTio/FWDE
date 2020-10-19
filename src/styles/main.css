@@ -17,10 +17,12 @@ ul {
 
 header {
     position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     background-color: #1e5f74;
     height: 60px;
-    width: 100%;
-    z-index: 1;
+    z-index: 2;
     display: inline;
 }
 
@@ -93,22 +95,23 @@ nav {
     padding-top: .5em;
 }
 
-.hero .hero-tagline-first,
-.hero-tagline-sec {
-    font-size: 1.5rem;
+.tagline {
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
     font-family: 'Bangers', cursive;
     position: absolute;
     color: white;
+    top: 4rem;
+    line-height: 10px;
 }
 
-.hero-tagline-first {
-    left: 0;
-    margin: 3em 0 0 30%;
+.tagline-first {
+    margin-left: -3rem;
 }
 
-.hero-tagline-sec {
-    right: 0;
-    margin: 4em 30% 0 0;
+.tagline-sec {
+    margin-left: 3rem;
 }
 
 .hero-desc {
@@ -125,11 +128,19 @@ nav {
 /* end header */
 
 /* Awal main */
+
+#content {
+    position: relative;
+    z-index: 1;
+    background: #fff;
+}
+
 .main-title {
     width: 80%;
+    position: relative;
     text-align: center;
     font-size: 1.6rem;
-    margin: 2em auto;
+    margin: 4em auto;
     font-weight: bold;
 }
 
@@ -208,6 +219,7 @@ footer {
     color: #1e5f74;
     font-weight: bold;
     border-radius: 1em;
+    z-index: -2;
 }
 
 .skip-content:focus {
@@ -267,12 +279,8 @@ footer {
 
     .brand-title {
         font-size: 3rem;
-        top: -1rem !important;
-    }
-
-    .hero .hero-tagline-first,
-    .hero-tagline-sec {
-        font-size: 2.5rem;
+        line-height: 80px;
+        margin-left: .5em;
     }
 
     .hero-desc {
@@ -280,21 +288,21 @@ footer {
         top: 3em;
     }
 
-    .nav-icon {
-        display: none;
+    header{
+        height: 80px;
     }
 
-    .brand-title {
-        left: .5em;
-        top: .3em;
+    .nav-icon {
+        display: none;
     }
 
     nav {
         width: 100%;
         background: none;
-        top: .5rem;
         left: 0;
+        margin-top: -4.5rem;
         text-align: right;
+        height: fit-content;
     }
 
     .nav-list {
@@ -319,24 +327,12 @@ footer {
     }
 
     .skip-content {
-        top: 5em;
+        top: 7em;
         font-size: 1rem;
+        background: #1e5f74;
+        color: #fff;
     }
 }
-
-
-@media screen and (min-width: 700px) {
-    .hero-tagline-first {
-        margin-left: 35%;
-    }
-
-    .hero-tagline-sec {
-        margin-right: 35%;
-    }
-
-
-}
-
 
 @media screen and (min-width: 800px) {
     .restaurant-list {
@@ -345,12 +341,6 @@ footer {
 }
 
 @media screen and (min-width: 900px) {
-
-    .hero .hero-tagline-first,
-    .hero-tagline-sec {
-        font-size: 3rem;
-    }
-
     .hero-desc {
         font-size: 1.8rem;
     }
@@ -374,6 +364,10 @@ footer {
     .nav-list {
         font-size: 1.4rem;
         margin: 1rem;
+    }
+
+    nav{
+        margin-top: -5rem;
     }
 }
 

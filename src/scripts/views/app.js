@@ -1,5 +1,6 @@
 import DrawerInitiator from '../utils/drawer-initiator';
-import HomeRestaurant from './pages/home-restaurant';
+import UrlParser from '../routs/url-parser';
+import Router from '../routs/router';
 
 class App {
   constructor({ drawer, button, content }) {
@@ -19,8 +20,10 @@ class App {
   }
 
   async renderPage() {
-    this._content.innerHTML = await HomeRestaurant.render();
-    await HomeRestaurant.afterRender();
+    const targetUrl = UrlParser.parseActiveUrlWithCombiner();
+    const targetPage = Router[targetUrl];
+    this._content.innerHTML = await targetPage.render();
+    await targetPage.afterRender();
   }
 }
 
