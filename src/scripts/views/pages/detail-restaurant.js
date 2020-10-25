@@ -5,14 +5,15 @@ import TemplateComponent from '../templates/templates-component';
 const DetailRestaurant = {
   render() {
     return `
-      <div class="detail-restaurant"></div>
+      <div id="detailRestaurant"></div>
       `;
   },
 
   async afterRender() {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
-    const restaurant = await RestaurantDataSources.detailRestaurant(url.id);
-    console.log(restaurant);
+    const dataRestaurant = await RestaurantDataSources.detailRestaurant(url.id);
+    const detailRestaurantContainer = document.querySelector('#detailRestaurant');
+    detailRestaurantContainer.innerHTML += TemplateComponent.templateDetail(dataRestaurant);
   },
 };
 

@@ -1,0 +1,155 @@
+@media screen and (min-width: 500px) {
+  .hero-desc {
+      font-size: 1.2rem;
+  }
+}
+
+
+@media screen and (min-width: 600px) {
+  .restaurant-list {
+      padding: 3rem;
+  }
+
+  .hero .hero-tagline-first,
+  .hero-tagline-sec {
+      font-size: 2rem;
+  }
+
+  .copyright {
+      font-size: 2rem;
+  }
+}
+
+@media screen and (min-width: 650px) {
+  #restaurantList, .foods ul, .drinks ul {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      padding: 1rem;
+  }
+
+  .restaurant-list {
+      padding: 1.3em;
+  }
+
+  section {
+      margin: 0;
+  }
+
+  .brand-title {
+      font-size: 3rem;
+      line-height: 80px;
+      margin-left: .5em;
+  }
+
+  .hero-desc {
+      font-size: 1.5rem;
+      top: 3em;
+  }
+
+  header{
+      height: 80px;
+  }
+
+  .nav-icon {
+      display: none;
+  }
+
+  nav {
+      width: 100%;
+      background: none;
+      left: 0;
+      margin-top: -4.5rem;
+      text-align: right;
+      height: fit-content;
+  }
+
+  .nav-list {
+      padding: 0;
+  }
+
+  .nav-item {
+      display: inline-block;
+  }
+
+  .nav-item a {
+      color: #fff;
+  }
+
+  .nav-item a::after {
+      content: none;
+  }
+
+  .nav-item a:hover {
+      border-bottom: 4px solid #5fdde5;
+      border-radius: 1em;
+  }
+
+  .skip-content {
+      top: 7em;
+      font-size: 1rem;
+      background: #1e5f74;
+      color: #fff;
+  }
+
+  .foods-title, .drinks-title {
+    width: 40%;
+    padding: 2rem;
+    border-radius: 25px;
+    text-align: center;
+    margin: 6rem auto;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .restaurant-list {
+      padding: 2rem;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .hero-desc {
+      font-size: 1.8rem;
+  }
+
+  .nav-list {
+      font-size: 1.2rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  #restaurantList, .foods ul, .drinks ul  {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+  }
+
+  .restaurant-list {
+      padding: 1rem;
+  }
+
+  .nav-list {
+      font-size: 1.4rem;
+      margin: 1rem;
+  }
+
+  nav{
+      margin-top: -5rem;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  body {
+      margin: auto;
+      max-width: 1400px;
+  }
+
+  .brand-title {
+      font-size: 4rem;
+  }
+
+  .nav-list {
+      font-size: 2rem;
+  }
+  
+}
