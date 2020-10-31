@@ -9,13 +9,14 @@ const TemplateComponent = {
         <article class="restaurant-list">
             <a href="${`/#/detail/${restaurant.id}`}" class="restaurant-title">${restaurant.name}</a>
             <p tabindex="0" class="restaurant-rating">Rating ${restaurant.rating}</p>
-            <p tabindex="0" class="restaurant-desc">${restaurant.description}</p>
+            <p tabindex="0" class="restaurant-desc" max="50">${restaurant.description.slice(0, 350)}</p>
         </article>
     </section>`;
   },
 
   templateHero() {
     return `
+    <a href="#main-content" class="skip-content" tabindex="1">Skip Content</a>
       <div class="tagline">
         <h2 class="tagline-first" tabindex="0">Terpercaya</h2>
         <h2 class="tagline-sec" tabindex="0">Terjangkau</h2>
@@ -29,12 +30,13 @@ const TemplateComponent = {
   templateDetail(restaurant) {
     let templateDetailHtml = this._templateDetailInformation(restaurant);
     templateDetailHtml += this._templateDetailMenu(restaurant.menus);
-    templateDetailHtml += this.templateReview();
+    templateDetailHtml += this._templateReviews(restaurant.customerReviews);
+    templateDetailHtml += this._templateAddNewReview();
     return templateDetailHtml;
   },
 
   _templateDetailInformation(restaurant) {
-    return `
+    let _templateDetailInformationHtml = `
     <div class="detail-information">
       <div class="detail-image">
         <img src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" tabindex="0" alt="Gambar restaurant ${restaurant.name} di ${restaurant.city}">
@@ -42,25 +44,35 @@ const TemplateComponent = {
       <div class="detail-content">
         <h2 class="detail-name">${restaurant.name}</h2>
         <h2 class="detail-rating"> ⭐ ${restaurant.rating}</h2>
-        <h2 class="detail-address"><img src="images/location.svg" alt="location">${restaurant.address}, ${restaurant.city}</h2>
+        <h2 class="detail-address"><img src="images/location.svg" alt="location"><span>${restaurant.address}, ${restaurant.city}</span></h2>
         <h2 class="detail-description-title">Deskripsi</h2>
         <p class="detail-description-content">${restaurant.description}</p>
       </div>
-    </div>`;
+      <div class="detail-categories">
+        <h2>Kategori</h2>
+        <ul>`;
+
+    restaurant.categories.forEach((category) => {
+      _templateDetailInformationHtml += `
+          <li class="category-name">${category.name}</li>
+      `;
+    });
+
+    _templateDetailInformationHtml += '</ul></div></div>';
+    return _templateDetailInformationHtml;
   },
 
   _templateDetailMenu(restaurant) {
     let templateMenuHtml = '<div class="detail-menu">';
     templateMenuHtml += this._templateMenuFoods(restaurant.foods);
     templateMenuHtml += this._templateMenuDrinks(restaurant.drinks);
-
     return templateMenuHtml;
   },
 
   _templateMenuFoods(foods) {
     let templateMenuFoodsHtml = `
+    <h2 class="foods-title">Makanan</h2>
       <div class="foods">
-        <h2 class="foods-title">Makanan</h2>
         <ul>
   `;
     foods.forEach((food) => {
@@ -77,8 +89,8 @@ const TemplateComponent = {
 
   _templateMenuDrinks(drinks) {
     let templateMenuDrinksHtml = `
+    <h2 class="drinks-title">Minuman</h2>
       <div class="drinks">
-        <h2 class="drinks-title">Minuman</h2>
         <ul>
   `;
     drinks.forEach((drink) => {
@@ -91,6 +103,47 @@ const TemplateComponent = {
 
     templateMenuDrinksHtml += '</ul></div>';
     return templateMenuDrinksHtml;
+  },
+
+  _templateReviews(customerReviews) {
+    let templateReviewHtml = `
+      <h2 class="review-title">Review</h2>
+      <div class="reviews">
+        <ul>
+    `;
+    customerReviews.forEach((review) => {
+      templateReviewHtml += `
+        <li>
+          <h3 class="review-name">${review.name}</h3>
+          <small class="review-date">${review.date}</small>
+          <p class="review-desc">${review.review}</p>
+        </li>`;
+    });
+
+    templateReviewHtml += '</ul></div>';
+    return templateReviewHtml;
+  },
+
+  _templateAddNewReview() {
+    return `
+      <form">
+        <h1>Tambahkan Review</h1>
+        <div class="formcontainer">
+        <div class="container">
+          <label for="name"><strong>Nama</strong></label>
+          <input type="text" placeholder="Masukan Nama" name="name" required>
+          <label for="review"><strong>E-mail</strong></label>
+          <input type="text" placeholder="Masukan Review" name="review" required>
+        </div>
+        <button type="submit"><strong>Kirim</strong></button>
+      </form>`;
+  },
+
+  loader() {
+    return `
+      <div class="loader">
+        <img src="./images/loader.svg" alt="loader halaman"
+      </div>  `;
   },
 };
 

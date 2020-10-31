@@ -5,7 +5,9 @@ import TemplateComponent from '../templates/templates-component';
 const DetailRestaurant = {
   render() {
     return `
-      <div id="detailRestaurant"></div>
+      <div id="detailRestaurant">
+        <img src="./images/loader.svg" alt="loader halaman" class="loader">
+      </div>
       `;
   },
 
@@ -13,6 +15,7 @@ const DetailRestaurant = {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
     const dataRestaurant = await RestaurantDataSources.detailRestaurant(url.id);
     const detailRestaurantContainer = document.querySelector('#detailRestaurant');
+    detailRestaurantContainer.innerHTML = '';
     detailRestaurantContainer.innerHTML += TemplateComponent.templateDetail(dataRestaurant);
   },
 };

@@ -5,9 +5,17 @@ const HomeRestaurant = {
   render() {
     return `
       <div class="content">
-      <div class="hero"></div>
+      <div class="hero">
+        <div class="loader">
+          <img src="./images/loader.svg" alt="loader halaman">
+        </div> 
+      </div>
         <h1 id="main-content" class="main-title" tabindex="0">Cari tempat yang sesuai dengan anda</h1>
-        <div id="restaurantList"></div>
+        <div id="restaurantList">
+          <div class="loader">
+            <img src="./images/loader.svg" alt="loader halaman">
+          </div> 
+        </div>
       </div>
       `;
   },
@@ -15,11 +23,17 @@ const HomeRestaurant = {
   async afterRender() {
     const heroContainer = document.querySelector('.hero');
     heroContainer.innerHTML = TemplateComponent.templateHero();
-    const restaurantList = await RestaurantDataSources.restaurantList();
     const restaurantListContainer = document.querySelector('#restaurantList');
-    restaurantList.forEach((restaurant) => {
-      restaurantListContainer.innerHTML += TemplateComponent.templateRestaurantList(restaurant);
-    });
+    const restaurantList = await RestaurantDataSources.restaurantList();
+
+    if (restaurantList) {
+      restaurantListContainer.innerHTML = '';
+      restaurantList.forEach((restaurant) => {
+        restaurantListContainer.innerHTML += TemplateComponent.templateRestaurantList(restaurant);
+      });
+    } else {
+      restaurantListContainer.innerHTML = '<h1>Anda Offline</h1>';
+    }
   },
 };
 

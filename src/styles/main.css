@@ -2,8 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Oleo+Script:wght@700&family=Roboto&display=swap');
 /* start header */
 
-
 body {
+    width: 100%;
     font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
     margin: 0;
@@ -15,7 +15,6 @@ ul {
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 100%;
     font: inherit;
     vertical-align: baseline;
 
@@ -134,10 +133,10 @@ nav {
 /* end header */
 
 /* Awal main */
-
 #content {
     position: relative;
     z-index: 1;
+    min-height: 350px;
     background: #fff;
 }
 
@@ -146,13 +145,22 @@ nav {
     position: relative;
     text-align: center;
     font-size: 1.6rem;
-    margin: 4em auto;
+    margin: 2em auto;
+    font-weight: bold;
+}
+
+.main-title-favorite {
+    width: 100%;
+    position: relative;
+    text-align: center;
+    font-size: 1.6rem;
+    margin: 4em 0 3rem 0;
     font-weight: bold;
 }
 
 section {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
-    margin: 1rem 1rem 0 1rem;
+    margin: 1rem 0;
     position: relative;
 }
 
@@ -172,7 +180,7 @@ section img {
     color: #fff;
     top: .5em;
     left: 1em;
-    width: 20%;
+    width: 30%;
     text-align: center;
     background: #1e5f74;
     border-radius: .5em;
@@ -201,17 +209,17 @@ section img {
 }
 
 footer {
+    margin-top: 2rem;
     width: 100%;
     background: #1e5f74;
-    color: #fff;
 }
 
 .copyright {
     font-size: 1rem;
     text-align: center;
-    padding: 1.2em 0;
+    padding: 1em 0;
     font-family: 'Oleo Script', cursive;
-    margin: 2rem 0 0 0 ;
+    color: #fff;
 }
 
 .skip-content {
@@ -225,7 +233,7 @@ footer {
     color: #1e5f74;
     font-weight: bold;
     border-radius: 1em;
-    z-index: -2;
+    z-index: -1;
 }
 
 .skip-content:focus {
@@ -237,15 +245,8 @@ footer {
     margin-top: 60px;
 }
 
-@media screen and (min-width: 400px) {
-
-    .hero .hero-tagline-first,
-    .hero-tagline-sec {
-        font-size: 1.8rem;
-    }
-
-    .hero-desc {
-        font-size: 1rem;
-    }
+.loader {
+    text-align: center;
+    margin-bottom: 200px;
+    margin-top: 50px;
 }
-

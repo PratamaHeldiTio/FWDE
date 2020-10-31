@@ -5,15 +5,20 @@ const FavoriteRestaurant = {
   render() {
     return `
       <div class="content">
-        <h1 id="main-content" class="main-title" tabindex="0">Daftar favorite anda</h1>
-        <div id="restaurantList"></div>
+        <h1 class="main-title-favorite" tabindex="0">Daftar favorite anda</h1>
+        <div id="restaurantList">
+            <img src="./images/loader.svg" alt="loader halaman" class="loader">
+        </div> 
       </div>
       `;
   },
 
   async afterRender() {
-    const restaurantList = await RestaurantDataSources.restaurantList();
     const restaurantListContainer = document.querySelector('#restaurantList');
+    restaurantListContainer.innerHTML = TemplateComponent.loader();
+
+    const restaurantList = await RestaurantDataSources.restaurantList();
+    restaurantListContainer.innerHTML = '';
     restaurantList.forEach((restaurant) => {
       restaurantListContainer.innerHTML += TemplateComponent.templateRestaurantList(restaurant);
     });
