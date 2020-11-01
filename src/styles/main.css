@@ -247,6 +247,5 @@ footer {
 
 .loader {
     text-align: center;
-    margin-bottom: 200px;
-    margin-top: 50px;
+    margin: 80px 0 200px 0;
 }

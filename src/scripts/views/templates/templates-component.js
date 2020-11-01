@@ -107,6 +107,7 @@ const TemplateComponent = {
 
   _templateReviews(customerReviews) {
     let templateReviewHtml = `
+    <div class="detail-review">
       <h2 class="review-title">Review</h2>
       <div class="reviews">
         <ul>
@@ -120,22 +121,22 @@ const TemplateComponent = {
         </li>`;
     });
 
-    templateReviewHtml += '</ul></div>';
+    templateReviewHtml += '</ul></div></div>';
     return templateReviewHtml;
   },
 
   _templateAddNewReview() {
     return `
-      <form">
+      <form id="formAddReview">
         <h1>Tambahkan Review</h1>
         <div class="formcontainer">
         <div class="container">
           <label for="name"><strong>Nama</strong></label>
-          <input type="text" placeholder="Masukan Nama" name="name" required>
-          <label for="review"><strong>E-mail</strong></label>
-          <input type="text" placeholder="Masukan Review" name="review" required>
+          <input type="text" placeholder="Masukan Nama" name="name" id="name" required>
+          <label for="review"><strong>Review</strong></label>
+          <input type="text" placeholder="Masukan Review" name="review" id="review" required>
         </div>
-        <button type="submit"><strong>Kirim</strong></button>
+        <button type="button" class="add-review"><strong>Kirim</strong></button>
       </form>`;
   },
 

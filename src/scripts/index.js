@@ -3,6 +3,7 @@ import '../styles/main.css';
 import '../styles/detail.css';
 import '../styles/responsive.css';
 import App from './views/app';
+import ServiceWorkerRegister from './utils/service-worker-register';
 
 const app = new App({
   drawer: document.querySelector('#drawer'),
@@ -16,4 +17,5 @@ window.addEventListener('hashchange', () => {
 
 window.addEventListener('load', () => {
   app.renderPage();
+  ServiceWorkerRegister();
 });
