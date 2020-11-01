@@ -249,3 +249,18 @@ footer {
     text-align: center;
     margin: 80px 0 200px 0;
 }
+
+.offline {
+    font-size: 2rem;
+    margin: 100px 0;
+    color: #1e5f74;
+    text-align: center;
+}
+
+.like img {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 50px;
+  margin: 1rem;
+}

@@ -24,15 +24,16 @@ const HomeRestaurant = {
     const heroContainer = document.querySelector('.hero');
     heroContainer.innerHTML = TemplateComponent.templateHero();
     const restaurantListContainer = document.querySelector('#restaurantList');
+    const mainTitleContainer = document.querySelector('.main-title');
     const restaurantList = await RestaurantDataSources.restaurantList();
+    restaurantListContainer.innerHTML = '';
 
     if (restaurantList) {
-      restaurantListContainer.innerHTML = '';
       restaurantList.forEach((restaurant) => {
         restaurantListContainer.innerHTML += TemplateComponent.templateRestaurantList(restaurant);
       });
     } else {
-      restaurantListContainer.innerHTML = '<h1>Anda Offline</h1>';
+      mainTitleContainer.innerHTML = '<h1 class="offline">Anda Sedang Offline</h1>';
     }
   },
 };

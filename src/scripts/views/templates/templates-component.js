@@ -146,6 +146,20 @@ const TemplateComponent = {
         <img src="./images/loader.svg" alt="loader halaman"
       </div>  `;
   },
+
+  templateLikeButton() {
+    return `
+      <button id="favoriteButton" class="like">
+        <img src="./images/like.svg" alt="button like"> 
+      </button>`;
+  },
+
+  templateLikedButton() {
+    return `
+      <button id="favoriteButton" class="like">
+        <img src="./images/liked.svg" alt="button like"> 
+      </button>`;
+  },
 };
 
 export default TemplateComponent;

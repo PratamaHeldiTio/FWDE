@@ -1,5 +1,5 @@
-import RestaurantDataSources from '../../data/restaurant-data-sources';
 import TemplateComponent from '../templates/templates-component';
+import FavoriteRestaurantDataDb from '../../data/favorite-restaurant-data-db';
 
 const FavoriteRestaurant = {
   render() {
@@ -16,12 +16,16 @@ const FavoriteRestaurant = {
   async afterRender() {
     const restaurantListContainer = document.querySelector('#restaurantList');
     restaurantListContainer.innerHTML = TemplateComponent.loader();
+    const restaurantList = await FavoriteRestaurantDataDb.getAllRestaurant();
 
-    const restaurantList = await RestaurantDataSources.restaurantList();
-    restaurantListContainer.innerHTML = '';
-    restaurantList.forEach((restaurant) => {
-      restaurantListContainer.innerHTML += TemplateComponent.templateRestaurantList(restaurant);
-    });
+    if (restaurantList.length > 0) {
+      restaurantListContainer.innerHTML = '';
+      restaurantList.forEach((restaurant) => {
+        restaurantListContainer.innerHTML += TemplateComponent.templateRestaurantList(restaurant);
+      });
+    } else {
+      restaurantListContainer.innerHTML = '<h1 class="offline">Daftar Favorite Kosong</h1>';
+    }
   },
 };
 

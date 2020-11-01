@@ -1,6 +1,7 @@
 import UrlParser from '../../routs/url-parser';
 import RestaurantDataSources from '../../data/restaurant-data-sources';
 import TemplateComponent from '../templates/templates-component';
+import FavoriteButtonInitiator from '../../utils/favorite-button-initiator';
 
 const DetailRestaurant = {
   render() {
@@ -10,6 +11,7 @@ const DetailRestaurant = {
           <img src="./images/loader.svg" alt="loader halaman">
         </div>
       </div>
+      <div id="favoriteButtonContainer"></div>
       `;
   },
 
@@ -17,8 +19,12 @@ const DetailRestaurant = {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
     const dataRestaurant = await RestaurantDataSources.detailRestaurant(url.id);
     const detailRestaurantContainer = document.querySelector('#detailRestaurant');
-    detailRestaurantContainer.innerHTML = '';
-    detailRestaurantContainer.innerHTML += TemplateComponent.templateDetail(dataRestaurant);
+    if (dataRestaurant) {
+      detailRestaurantContainer.innerHTML = '';
+      detailRestaurantContainer.innerHTML += TemplateComponent.templateDetail(dataRestaurant);
+    } else {
+      detailRestaurantContainer.innerHTML = '<h1 class="offline">Anda Sedang Offline</h1>';
+    }
 
     const buttonAddReview = document.querySelector('.add-review');
     buttonAddReview.addEventListener('click', async () => {
@@ -28,11 +34,21 @@ const DetailRestaurant = {
         review: `${document.querySelector('#review').value}`,
       };
 
-      const dataReviewNew = await RestaurantDataSources.AddNewReview(dataReview);
       const dataReviewContainer = document.querySelector('.detail-review');
-      const formAddReview = document.querySelector('#formAddReview');
-      dataReviewContainer.innerHTML = TemplateComponent._templateReviews(dataReviewNew);
-      formAddReview.reset();
+      const dataReviewNew = await RestaurantDataSources.AddNewReview(dataReview);
+
+      if (dataReviewNew) {
+        const formAddReview = document.querySelector('#formAddReview');
+        dataReviewContainer.innerHTML = TemplateComponent._templateReviews(dataReviewNew);
+        formAddReview.reset();
+      } else {
+        dataReviewContainer.innerHTML += '<h1 class="offline">Anda Sedang Offline</h1>';
+      }
+    });
+
+    FavoriteButtonInitiator.init({
+      favoriteButtonContainer: document.querySelector('#favoriteButtonContainer'),
+      restaurant: dataRestaurant,
     });
   },
 };
