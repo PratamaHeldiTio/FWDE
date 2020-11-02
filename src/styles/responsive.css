@@ -49,18 +49,13 @@
   }
 
   .brand-title {
-    font-size: 3rem;
-    line-height: 80px;
+    font-size: 2rem;
     margin-left: .5em;
   }
 
   .hero-desc {
     font-size: 1.5rem;
     top: 3em;
-  }
-
-  header{
-    height: 80px;
   }
 
   .nav-icon {
@@ -229,15 +224,6 @@
     padding: 1rem;
   }
 
-  .nav-list {
-    font-size: 1.4rem;
-    margin: 1rem;
-  }
-
-  nav{
-    margin-top: -5rem;
-  }
-
   .tagline {
     font-size: 2.5rem;
     top: 12rem;
@@ -266,11 +252,7 @@
   }
 }
 
-@media screen and (min-width: 1400px) {
-  header {
-    height: 100px;
-  }
-    
+@media screen and (min-width: 1400px) { 
   nav {
     margin-top: -6.3rem;
   }
@@ -278,15 +260,6 @@
   body {
     margin: auto;
     max-width: 1400px;
-  }
-
-  .brand-title {
-    font-size: 4rem;
-    line-height: 100px;
-  }
-
-  .nav-list {
-    font-size: 2rem;
   }
 
   .tagline {

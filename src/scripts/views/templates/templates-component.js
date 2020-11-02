@@ -24,7 +24,7 @@ const TemplateComponent = {
       <p class="hero-desc" tabindex="0">Rasakan langsung tempat rekomendasi restaurant terbaik diseluruh nusantara dan tempat
           para pecinta
           kuliner</p>
-      <img src="./images/heros/hero-image.webp" alt="hero website">`;
+      <img src="./images/hero-image.webp" alt="hero website">`;
   },
 
   templateDetail(restaurant) {

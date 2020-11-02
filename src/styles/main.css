@@ -75,7 +75,6 @@ nav {
 }
 
 .nav-list {
-    font-size: 1rem;
     display: list-item;
     padding: 1rem;
 }
@@ -87,6 +86,7 @@ nav {
 
 .nav-item a {
     text-decoration: none;
+    font-size: .8em;
     color: #fff;
     padding: .8em .5em;
 }
@@ -189,11 +189,13 @@ section img {
 }
 
 .restaurant-title {
+    padding: 1rem 0;
     font-size: 1.3rem;
     font-weight: bold;
     color: #000;
     text-decoration: none;
 }
+
 
 .restaurant-rating {
     font-size: 1rem;

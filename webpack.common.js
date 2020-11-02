@@ -39,14 +39,11 @@ module.exports = {
         },
       ],
     }),
-    new InjectManifest({
-      swSrc: './src/scripts/sw.js',
-    }),
     new WebpackPwaManifest({
       name: 'EatGo Restaurant',
       short_name: 'EatGo',
       description: 'EatGo Restaurant tempat informasi restaurant modern nusantara',
-      start_url: '/index.html',
+      start_url: './src/template/index.html',
       background_color: '#1e5f74',
       display: 'standalone',
       theme_color: '#1e5f74',
@@ -57,6 +54,9 @@ module.exports = {
           purpose: 'any maskable',
         },
       ],
+    }),
+    new InjectManifest({
+      swSrc: './src/scripts/sw.js',
     }),
   ],
 };
