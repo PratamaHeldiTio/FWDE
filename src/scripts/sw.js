@@ -25,18 +25,6 @@ registerRoute(
 );
 
 registerRoute(
-  new RegExp('https://www.linkedin.com/in/heldi-tio-pratama-2a78981b2/'),
-  new CacheFirst({
-    cacheName: 'cache-about-us',
-    plugins: [
-      new ExpirationPlugin({
-        maxAgeSeconds: 60 * 60 * 24 * 30,
-      }),
-    ],
-  }),
-);
-
-registerRoute(
   ({ url }) => url.origin === 'https://fonts.gstatic.com',
   new CacheFirst({
     cacheName: 'google-fonts-webfonts',
