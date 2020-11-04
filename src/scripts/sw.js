@@ -25,7 +25,7 @@ registerRoute(
 );
 
 registerRoute(
-  ({ url }) => url.origin === 'https://fonts.gstatic.com',
+  ({ url }) => url.origin === 'https://fonts.gstatic.com' || url.origin === 'https://fonts.googleapis.com',
   new CacheFirst({
     cacheName: 'google-fonts-webfonts',
     plugins: [

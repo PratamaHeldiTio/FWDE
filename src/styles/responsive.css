@@ -253,10 +253,6 @@
 }
 
 @media screen and (min-width: 1400px) { 
-  nav {
-    margin-top: -6.3rem;
-  }
-
   body {
     margin: auto;
     max-width: 1400px;
