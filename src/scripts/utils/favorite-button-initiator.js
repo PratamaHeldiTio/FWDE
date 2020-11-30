@@ -30,7 +30,7 @@ const FavoriteButtonInitiator = {
     const favoriteButton = document.querySelector('#favoriteButton');
     favoriteButton.addEventListener('click', async () => {
       await FavoriteRestaurantDataDb.putRestaurant(this._restaurant);
-      this._renderButton();
+      await this._renderButton();
     });
   },
 
@@ -40,7 +40,7 @@ const FavoriteButtonInitiator = {
     const favoriteButton = document.querySelector('#favoriteButton');
     favoriteButton.addEventListener('click', async () => {
       await FavoriteRestaurantDataDb.deleteRestaurant(this._restaurant.id);
-      this._renderButton();
+      await this._renderButton();
     });
   },
 };

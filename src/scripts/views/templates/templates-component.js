@@ -4,12 +4,12 @@ const TemplateComponent = {
   templateRestaurantList(restaurant) {
     return `
       <section>
-        <img src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" tabindex="0" alt="Gambar restaurant ${restaurant.name} di ${restaurant.city}">
+        <img src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" tabindex="0" alt="restaurant ${restaurant.name} di ${restaurant.city}">
         <h2 tabindex="0" class="restaurant-place">${restaurant.city}</h2>
         <article class="restaurant-list">
             <a href="${`/#/detail/${restaurant.id}`}" class="restaurant-title">${restaurant.name}</a>
             <p tabindex="0" class="restaurant-rating">Rating ${restaurant.rating}</p>
-            <p tabindex="0" class="restaurant-desc" max="50">${restaurant.description.slice(0, 350)}</p>
+            <p tabindex="0" class="restaurant-desc" >${restaurant.description}</p>
         </article>
     </section>`;
   },
@@ -39,7 +39,7 @@ const TemplateComponent = {
     let _templateDetailInformationHtml = `
     <div class="detail-information">
       <div class="detail-image">
-        <img src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" tabindex="0" alt="Gambar restaurant ${restaurant.name} di ${restaurant.city}">
+        <img src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" tabindex="0" alt="restaurant ${restaurant.name} di ${restaurant.city}">
       </div>
       <div class="detail-content">
         <h2 class="detail-name">${restaurant.name}</h2>

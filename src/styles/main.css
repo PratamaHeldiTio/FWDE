@@ -193,6 +193,9 @@ section img {
     text-decoration: none;
 }
 
+.restaurant-title:hover{
+    color: #1e5f74;
+}
 
 .restaurant-rating {
     font-size: 1rem;
@@ -205,6 +208,11 @@ section img {
     line-height: 1.5em;
     text-align: justify;
     text-indent: 3em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 8; 
+    -webkit-box-orient: vertical;
 }
 
 footer {
