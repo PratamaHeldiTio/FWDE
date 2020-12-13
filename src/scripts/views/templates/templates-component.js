@@ -147,16 +147,16 @@ const TemplateComponent = {
       </div>  `;
   },
 
-  templateLikeButton() {
+  templateButtonFavoriteRestaurant() {
     return `
-      <button id="favoriteButton" class="like">
+      <button id="favoriteButton" class="like" aria-label="favorite restaurant">
         <img src="./images/like.svg" alt="button like"> 
       </button>`;
   },
 
-  templateLikedButton() {
+  templateButtonUnfavoriteRestaurant() {
     return `
-      <button id="favoriteButton" class="like">
+      <button id="favoriteButton" class="like" aria-label="unfavorite restaurant">
         <img src="./images/liked.svg" alt="button like"> 
       </button>`;
   },

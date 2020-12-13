@@ -1,7 +1,7 @@
 import FavoriteRestaurantDataDb from '../data/favorite-restaurant-data-db';
 import TemplateComponent from '../views/templates/templates-component';
 
-const FavoriteButtonInitiator = {
+const FavoriteButtonPresenter = {
   async init({ favoriteButtonContainer, restaurant }) {
     this._favoriteButtonContainer = favoriteButtonContainer;
     this._restaurant = restaurant;
@@ -25,7 +25,7 @@ const FavoriteButtonInitiator = {
   },
 
   _renderLike() {
-    this._favoriteButtonContainer.innerHTML = TemplateComponent.templateLikeButton();
+    this._favoriteButtonContainer.innerHTML = TemplateComponent.templateButtonFavoriteRestaurant();
 
     const favoriteButton = document.querySelector('#favoriteButton');
     favoriteButton.addEventListener('click', async () => {
@@ -35,7 +35,8 @@ const FavoriteButtonInitiator = {
   },
 
   _renderLiked() {
-    this._favoriteButtonContainer.innerHTML = TemplateComponent.templateLikedButton();
+    this._favoriteButtonContainer.innerHTML = TemplateComponent
+      .templateButtonUnfavoriteRestaurant();
 
     const favoriteButton = document.querySelector('#favoriteButton');
     favoriteButton.addEventListener('click', async () => {
@@ -45,4 +46,4 @@ const FavoriteButtonInitiator = {
   },
 };
 
-export default FavoriteButtonInitiator;
+export default FavoriteButtonPresenter;

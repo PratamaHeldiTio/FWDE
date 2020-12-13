@@ -1,3 +1,4 @@
+/* eslint-disable no-prototype-builtins */
 import { openDB } from 'idb';
 import CONFIG from '../globals/config';
 
@@ -11,6 +12,9 @@ const dbPromise = openDB(DATABASE_NAME, DATABASE_VERSION, {
 
 const FavoriteRestaurantDataDb = {
   async getRestaurant(id) {
+    if (!id) {
+      return false;
+    }
     return (await dbPromise).get(OBJECT_STORE_NAME, id);
   },
 
@@ -19,6 +23,9 @@ const FavoriteRestaurantDataDb = {
   },
 
   async putRestaurant(restaurant) {
+    if (!restaurant.hasOwnProperty('id')) {
+      return false;
+    }
     return (await dbPromise).put(OBJECT_STORE_NAME, restaurant);
   },
 

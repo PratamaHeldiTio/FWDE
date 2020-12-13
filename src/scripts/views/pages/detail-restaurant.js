@@ -1,7 +1,7 @@
 import UrlParser from '../../routs/url-parser';
 import RestaurantDataSources from '../../data/restaurant-data-sources';
 import TemplateComponent from '../templates/templates-component';
-import FavoriteButtonInitiator from '../../utils/favorite-button-initiator';
+import FavoriteButtonPresenter from '../../utils/favorite-button-presenter';
 
 const DetailRestaurant = {
   render() {
@@ -46,7 +46,7 @@ const DetailRestaurant = {
       }
     });
 
-    FavoriteButtonInitiator.init({
+    FavoriteButtonPresenter.init({
       favoriteButtonContainer: document.querySelector('#favoriteButtonContainer'),
       restaurant: dataRestaurant,
     });
