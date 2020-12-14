@@ -3,8 +3,8 @@ import CONFIG from '../../globals/config';
 const TemplateComponent = {
   templateRestaurantList(restaurant) {
     return `
-      <section>
-        <img src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" tabindex="0" alt="restaurant ${restaurant.name} di ${restaurant.city}">
+      <section class="restaurant">
+        <img src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" tabindex="0" alt="restaurant ${restaurant.name} di ${restaurant.city}" class="lazyload">
         <h2 tabindex="0" class="restaurant-place">${restaurant.city}</h2>
         <article class="restaurant-list">
             <a href="${`/#/detail/${restaurant.id}`}" class="restaurant-title">${restaurant.name}</a>
@@ -24,7 +24,9 @@ const TemplateComponent = {
       <p class="hero-desc" tabindex="0">Rasakan langsung tempat rekomendasi restaurant terbaik diseluruh nusantara dan tempat
           para pecinta
           kuliner</p>
-      <img src="./images/hero-image.webp" alt="hero website">`;
+      <img src="./images/hero-image-large.webp" alt="hero website"
+            srcset="./images/hero-image-small.webp 480w, ./images/hero-image-large.webp 800w"
+      sizes="(max-width: 600px) 480px, 800px" class="lazyload">`;
   },
 
   templateDetail(restaurant) {
@@ -39,7 +41,7 @@ const TemplateComponent = {
     let _templateDetailInformationHtml = `
     <div class="detail-information">
       <div class="detail-image">
-        <img src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" tabindex="0" alt="restaurant ${restaurant.name} di ${restaurant.city}">
+        <img src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" tabindex="0" alt="restaurant ${restaurant.name} di ${restaurant.city}" class="lazyload">
       </div>
       <div class="detail-content">
         <h2 class="detail-name">${restaurant.name}</h2>
@@ -78,7 +80,7 @@ const TemplateComponent = {
     foods.forEach((food) => {
       templateMenuFoodsHtml += `
       <li>
-        <img class="image-menu" src="images/food.svg" alt="menu makanan">
+        <img class="image-menu" src="images/food.svg" alt="menu makanan" class="lazyload">
         <h3 class="food-name">${food.name}</h3>
       </li>`;
     });
@@ -96,7 +98,7 @@ const TemplateComponent = {
     drinks.forEach((drink) => {
       templateMenuDrinksHtml += `
       <li>
-        <img class="image-menu" src="images/drink.svg" alt="menu minuman">
+        <img class="image-menu" src="images/drink.svg" alt="menu minuman" class="lazyload">
         <h3 class="drink-name">${drink.name}</h3>
       </li>`;
     });
@@ -143,21 +145,21 @@ const TemplateComponent = {
   loader() {
     return `
       <div class="loader">
-        <img src="./images/loader.svg" alt="loader halaman"
+        <img src="./images/loader.svg" alt="loader halaman" class="lazyload">
       </div>  `;
   },
 
   templateButtonFavoriteRestaurant() {
     return `
-      <button id="favoriteButton" class="like" aria-label="favorite restaurant">
-        <img src="./images/like.svg" alt="button like"> 
+      <button id="favoriteButton" class="favorite" aria-label="favorite restaurant">
+        <img src="./images/like.svg" alt="button like" class="lazyload"> 
       </button>`;
   },
 
   templateButtonUnfavoriteRestaurant() {
     return `
-      <button id="favoriteButton" class="like" aria-label="unfavorite restaurant">
-        <img src="./images/liked.svg" alt="button like"> 
+      <button id="favoriteButton" class="unfavorite" aria-label="unfavorite restaurant">
+        <img src="./images/liked.svg" alt="button like" class="lazyload"> 
       </button>`;
   },
 };

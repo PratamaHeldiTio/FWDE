@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { InjectManifest } = require('workbox-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const path = require('path');
 
 module.exports = {
@@ -36,6 +37,9 @@ module.exports = {
         {
           from: path.resolve(__dirname, 'src/public/'),
           to: path.resolve(__dirname, 'dist/'),
+          globOptions: {
+            ignore: ['**/hero/**'],
+          },
         },
       ],
     }),
@@ -58,5 +62,6 @@ module.exports = {
     new InjectManifest({
       swSrc: './src/scripts/sw.js',
     }),
+    new BundleAnalyzerPlugin(),
   ],
 };

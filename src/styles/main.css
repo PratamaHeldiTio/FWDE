@@ -264,7 +264,7 @@ footer {
     text-align: center;
 }
 
-.like img {
+.favorite img, .unfavorite img {
   position: fixed;
   bottom: 1rem;
   right: 1rem;
